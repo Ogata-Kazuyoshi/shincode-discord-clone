@@ -1,6 +1,7 @@
 import React from 'react';
 import './Sidebar.scss';
 import pic1 from '../../assets/logo192.png';
+import discordPic from '../../assets/discordIcon.png';
 import shibainu from '../../assets/icon.png';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
@@ -14,7 +15,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebarLeft">
         <div className="serverIcon">
-          <img src={pic1} alt="#" />
+          <img src={discordPic} alt="#" />
         </div>
         <div className="serverIcon">
           <img src={pic1} alt="#" />

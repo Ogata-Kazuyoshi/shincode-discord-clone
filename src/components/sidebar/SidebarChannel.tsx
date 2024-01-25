@@ -5,16 +5,16 @@ const SidebarChannel = () => {
   return (
     <div className="sidebarChannel">
       <h4>
-        <span className="sidebarChannelHash"># Udemy</span>
+        <span className="sidebarChannelHash">#</span>
+        Udemy
       </h4>
       <h4>
-        <span className="sidebarChannelHash"># Udemy</span>
+        <span className="sidebarChannelHash">#</span>
+        Udemy
       </h4>
       <h4>
-        <span className="sidebarChannelHash"># Udemy</span>
-      </h4>
-      <h4>
-        <span className="sidebarChannelHash"># Udemy</span>
+        <span className="sidebarChannelHash">#</span>
+        Udemy
       </h4>
     </div>
   );
