@@ -9,16 +9,8 @@ import HeadphonesIcon from '@mui/icons-material/Headphones';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { auth, db } from '../../firebase';
 import { useAppSelector } from '../../app/hooks';
-import { useEffect, useState } from 'react';
-import {
-  DocumentData,
-  QuerySnapshot,
-  addDoc,
-  collection,
-  onSnapshot,
-  query,
-} from 'firebase/firestore';
-import { Channel } from '../../interface';
+// import { useEffect, useState } from 'react';
+import { addDoc, collection } from 'firebase/firestore';
 import UseCollection from '../../hooks/UseCollection';
 
 const Sidebar = () => {

@@ -11,7 +11,6 @@ import {
   CollectionReference,
   DocumentData,
   Query,
-  Timestamp,
   addDoc,
   collection,
   onSnapshot,
@@ -76,7 +75,7 @@ const Chat = () => {
       {/* chatMessage */}
       <div className="chatMessage">
         {messages.map((elm, index) => {
-          return <ChatMessage messages={elm} />;
+          return <ChatMessage messages={elm} key={index} />;
         })}
       </div>
       {/* chatInput */}

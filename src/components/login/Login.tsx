@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import './Login.scss';
 import discordIcon from '../../assets/discordIcon.png';
 import { Button } from '@mui/material';

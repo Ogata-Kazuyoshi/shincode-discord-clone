@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useAppSelector } from '../app/hooks';
+import { useEffect, useState } from 'react';
+// import { useAppSelector } from '../app/hooks';
 import {
   DocumentData,
   Query,
@@ -13,7 +13,7 @@ import { Channel } from '../interface';
 const UseCollection = (data: string) => {
   const [documents, setDocuments] = useState<Channel[]>([]);
 
-  const collectionRef: Query<DocumentData> = query(collection(db, 'channels'));
+  const collectionRef: Query<DocumentData> = query(collection(db, data));
 
   useEffect(() => {
     onSnapshot(collectionRef, (QuerySnapshot) => {

@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import './SidebarChannel.scss';
 import { Channel } from '../../interface';
 import { useAppDispatch } from '../../app/hooks';
