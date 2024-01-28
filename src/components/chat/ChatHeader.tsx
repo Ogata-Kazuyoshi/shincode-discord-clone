@@ -7,13 +7,19 @@ import SearchIcon from '@mui/icons-material/Search';
 import SendIcon from '@mui/icons-material/Send';
 import HelpIcon from '@mui/icons-material/Help';
 
-const ChatHeader = () => {
+interface ChatHeaderProps {
+  channelName: string | null;
+}
+
+const ChatHeader = (props: ChatHeaderProps) => {
+  const { channelName } = props;
+  console.log(props);
   return (
     <div className="chatHeader">
       <div className="chatHeaderLeft">
         <h3>
           <span className="chatHeaderHash">#</span>
-          Udemy
+          {channelName}
         </h3>
       </div>
       <div className="chatHeaderRight">

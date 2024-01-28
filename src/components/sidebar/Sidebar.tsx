@@ -7,11 +7,34 @@ import SidebarChannel from './SidebarChannel';
 import MicIcon from '@mui/icons-material/Mic';
 import HeadphonesIcon from '@mui/icons-material/Headphones';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { auth } from '../../firebase';
+import { auth, db } from '../../firebase';
 import { useAppSelector } from '../../app/hooks';
+import { useEffect, useState } from 'react';
+import {
+  DocumentData,
+  QuerySnapshot,
+  addDoc,
+  collection,
+  onSnapshot,
+  query,
+} from 'firebase/firestore';
+import { Channel } from '../../interface';
+import UseCollection from '../../hooks/UseCollection';
 
 const Sidebar = () => {
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.user.user);
+  const { documents: channels } = UseCollection('channels');
+
+  const addChannel = async () => {
+    let channelName: string | null = prompt('新しいチャンネルを作成します。');
+
+    if (channelName) {
+      await addDoc(collection(db, 'channels'), {
+        channelname: channelName,
+      });
+    }
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebarLeft">
@@ -37,10 +60,12 @@ const Sidebar = () => {
               <ExpandMoreIcon />
               <h4>プログラミング</h4>
             </div>
-            <AddIcon className="sidebarAddIcon" />
+            <AddIcon className="sidebarAddIcon" onClick={addChannel} />
           </div>
           <div className="sidebarChannelList">
-            <SidebarChannel />
+            {channels.map((elm) => {
+              return <SidebarChannel channel={elm} key={elm.id} />;
+            })}
           </div>
         </div>
         <div className="sidebarFooter">
@@ -54,7 +79,7 @@ const Sidebar = () => {
             />
             <div className="accountName">
               <h4>{user?.displayName}</h4>
-              <span>#{(user?.uid as string).slice(0, 5)}</span>
+              {/* <span>#{(user?.uid as string).slice(0, 5)}</span> */}
             </div>
           </div>
           <div className="sidebarVoice">

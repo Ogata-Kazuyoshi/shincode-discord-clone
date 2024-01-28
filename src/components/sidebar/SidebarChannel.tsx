@@ -1,20 +1,33 @@
 import React from 'react';
 import './SidebarChannel.scss';
+import { Channel } from '../../interface';
+import { useAppDispatch } from '../../app/hooks';
+import { setChannelInfo } from '../../features/channelSlice';
 
-const SidebarChannel = () => {
+interface SidebarProps {
+  channel: Channel;
+}
+
+const SidebarChannel = (props: SidebarProps) => {
+  const { channel } = props;
+
+  const dispath = useAppDispatch();
+
   return (
-    <div className="sidebarChannel">
+    <div
+      className="sidebarChannel"
+      onClick={() =>
+        dispath(
+          setChannelInfo({
+            channelId: channel.id,
+            channelname: channel.channel.channelname,
+          })
+        )
+      }
+    >
       <h4>
         <span className="sidebarChannelHash">#</span>
-        Udemy
-      </h4>
-      <h4>
-        <span className="sidebarChannelHash">#</span>
-        Udemy
-      </h4>
-      <h4>
-        <span className="sidebarChannelHash">#</span>
-        Udemy
+        {channel.channel.channelname}
       </h4>
     </div>
   );
