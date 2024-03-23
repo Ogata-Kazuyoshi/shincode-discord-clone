@@ -7,12 +7,12 @@ import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyB2rlqXlrx-41Bd2mY6ZsrxdpDj8Lj-zD4',
-  authDomain: 'discord-clone-udemy-92554.firebaseapp.com',
-  projectId: 'discord-clone-udemy-92554',
-  storageBucket: 'discord-clone-udemy-92554.appspot.com',
-  messagingSenderId: '658667509331',
-  appId: '1:658667509331:web:7786713bea9a99866358a6',
+  apiKey:import.meta.env.VITE_API_KEY,
+  authDomain:import.meta.env.VITE_AUTH_DOMAIN,
+  projectId:import.meta.env.VITE_PROJECT_ID,
+  storageBucket:import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId:import.meta.env.VITE_MESSAGING_SEND_ID,
+  appId:import.meta.env.VITE_APP_ID,
 };
 
 // Initialize Firebase
